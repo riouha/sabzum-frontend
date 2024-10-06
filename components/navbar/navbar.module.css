@@ -1,0 +1,105 @@
+.navbar {
+    padding: 0 20vw;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: stretch;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    background: #FFF;
+    transition: all 0.2s ease-in-out;
+    top: -40px
+}
+
+
+@media only screen and (max-width: 1400px) {
+    .navbar {
+        padding: 0 3vw;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .navbar {
+        display: none;
+    }
+}
+
+
+.navItems {
+    display: flex;
+    flex-basis: auto;
+    flex-grow: 1;
+    align-items: center;
+}
+
+.navList {
+    flex-direction: row;
+    display: flex;
+    padding-right: 0;
+    list-style: none;
+    font-size: 14px;
+}
+
+.navListItem {
+    display: list-item;
+    text-align: -webkit-match-parent;
+    font-size: 14px;
+}
+
+/* .navListItem a {} */
+
+.navLink {
+    padding: 0.439rem 1rem;
+    color: #79889e;
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
+    font-family: Vazirmatn;
+    font-weight: 400;
+}
+
+.navLink:hover {
+    color: #203656;
+}
+
+.active {
+    color: #FFF;
+    border-radius: 25px;
+    background: #FE4F70;
+    background: -webkit-linear-gradient(right, #FE4F70 0%, #FFA387 100%);
+    background: linear-gradient(to left, #FE4F70 0%, #FFA387 100%);
+}
+
+.icon_btn {
+    color: #FFF;
+    border: 0;
+    border-radius: 50%;
+    background: #FFA387;
+    background: -webkit-linear-gradient(bottom, #FFA387 0%, #FE4F70 51%, #FFA387 100%);
+    background: linear-gradient(to top, #FFA387 0%, #FE4F70 51%, #FFA387 100%);
+    background-size: auto 200%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 37px;
+    line-height: 39px;
+    text-align: center;
+    vertical-align: middle;
+    width: 37px;
+    -webkit-box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.15);
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+.icon_btn:hover {
+    background-position: bottom center;
+}
+
+.navBtns button {
+    margin-right: 10px;
+}

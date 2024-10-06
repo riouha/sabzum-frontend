@@ -1,0 +1,40 @@
+.card {
+  border: 1px solid #EBEBEB;
+  border-radius: 10px;
+}
+
+.card h1 {
+  text-align: center;
+  color: #203656;
+}
+
+.card p {
+  text-align: justify;
+  color: #8F9BAD;
+  padding: 0 20px;
+}
+
+.details {
+  text-align: center;
+  color: #203656;
+  font-weight: bold;
+}
+
+.details button {
+  margin: 0 3px;
+}
+
+.list {
+  list-style: none;
+  padding: 0 20px 6px 0;
+}
+
+.list li::before {
+  content: "\2713";
+  color: #FE4F70;
+  font-family: "simple-line-icons";
+  font-weight: 800;
+  font-size: 17px;
+  vertical-align: middle;
+  margin-left: 10px;
+}

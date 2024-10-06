@@ -1,0 +1,44 @@
+.gallery {
+    /* margin: 20px; */
+    /* border: 1px solid gray; */
+    justify-content: space-between;
+
+}
+
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #aaa;
+}
+
+
+
+.header input {}
+
+.images {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+
+.imageDiv {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    unicode-bidi: plaintext;
+    margin: 0 10px;
+    width: 20%;
+}
+
+.imageDiv label {
+    font-size: 10px;
+    word-wrap: break-word;
+}
+
+.image {
+    border: 1px solid black;
+    cursor: pointer;
+}

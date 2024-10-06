@@ -1,0 +1,49 @@
+.card {
+  border: 1px solid #EBEBEB;
+  border-radius: 10px;
+  padding: 0 30px;
+}
+
+
+.card h3 {
+  color: #203656;
+  text-align: center;
+}
+
+.list {
+  list-style: none;
+  padding: 0
+}
+
+.list li {
+  line-height: 50px;
+}
+
+.list li::before {
+  content: "\276F";
+  color: #FE4F70;
+  font-family: "simple-line-icons";
+  vertical-align: middle;
+  margin-left: 10px;
+}
+
+.list li:after {
+  content: "";
+  display: block;
+  height: 1px;
+  width: 100%;
+  background: #EBEBEB;
+  background: -webkit-linear-gradient(right, #EBEBEB 0%, transparent 100%);
+  background: linear-gradient(to left, #EBEBEB 0%, transparent 100%);
+}
+
+.list label {
+  float: left;
+  color: #8F9BAD;
+  font-size: 14px;
+}
+
+.list span {
+  color: #203656;
+  font-weight: 500;
+}

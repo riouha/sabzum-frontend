@@ -1,0 +1,29 @@
+.newpost {
+    margin: 30px;
+}
+
+.post {
+    display: flex;
+
+}
+
+.editor {
+    width: 80%;
+    border: 1px solid #ebebeb;
+    border-radius: 10px;
+    padding: 0 15px;
+    min-height: 500px;
+}
+
+.settings {
+    width: 20%;
+}
+
+.title {
+    margin: 20px 0;
+    border: none;
+    outline: 0;
+    font-size: 25px;
+    font-weight: 500;
+    width: 100%;
+}

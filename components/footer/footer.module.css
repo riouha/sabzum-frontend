@@ -1,0 +1,110 @@
+.footer {
+    padding: 20px;
+    display: flex;
+    background-color: #535c68;
+    justify-content: space-between;
+}
+
+.logo_nav {
+    width: 25%;
+    display: block;
+}
+
+.logo_nav section {
+    margin-right: 40px;
+    display: inline-flex;
+}
+
+.logo_nav span {
+    color: #ddd;
+    margin-right: 15px;
+    margin-top: 15px;
+    font-weight: 600;
+}
+
+.navlist {
+    display: inline-flex;
+    list-style: none;
+}
+
+.navlist li {
+    cursor: pointer;
+    margin-left: 15px;
+    color: #ddd;
+    font-size: 12px;
+}
+
+.social_icons {
+    margin-right: 30px;
+}
+
+.social_icon {
+    background: #33383b;
+    color: #ddd;
+    margin: 7px;
+    padding: 6px;
+    border-radius: 3px;
+}
+
+
+
+.contactus {
+    width: 20%;
+}
+
+.contactus section {
+    display: flex;
+    align-items: center;
+}
+
+.contactus section i {
+    width: 20%;
+}
+
+.contactus_icon {
+    background: #33383b;
+    color: #ddd;
+    margin: 7px;
+    padding: 6px;
+    border-radius: 50%;
+}
+
+.contactus span {
+    color: #ddd;
+    font-size: 12px;
+
+}
+
+
+
+.subscribe {
+    width: 35%;
+    margin-right: 10px;
+}
+
+.subscribe p {
+    color: #ddd;
+    font-weight: 600;
+}
+
+.subscribe input {
+    direction: ltr;
+    margin-left: 30px;
+    width: 60%;
+    outline: 0;
+    padding: 5px 15px;
+    border: 1px solid #718093;
+    background-color: #596275;
+    color: #ddd;
+    font-size: 14px;
+    line-height: 26px;
+    border-radius: 20px;
+}
+
+
+
+.subscribe input::placeholder {
+    /* direction: rtl; */
+    color: #718093;
+    text-align: right;
+}

@@ -1,0 +1,16 @@
+.input {
+    font-family: Vazirmatn;
+    font-size: 13px;
+    font-weight: 300;
+    border: none;
+}
+
+.input:focus {
+    outline: none;
+}
+
+.box {
+    padding: 0 7px 3px 0;
+    display: inline-block;
+    border-bottom: 1px solid #CDCDCD;
+}

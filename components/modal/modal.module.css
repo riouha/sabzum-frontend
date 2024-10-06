@@ -1,0 +1,12 @@
+.modal {
+    position: absolute;
+    z-index: 20;
+    background-color: #FFF;
+    width: 80%;
+    border: 1px solid #ccc;
+    padding: 15px;
+    right: 10%;
+    top: 10%;
+    transition: all 0.3s ease-out;
+    overflow: scroll;
+}
