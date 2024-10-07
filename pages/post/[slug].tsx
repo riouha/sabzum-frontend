@@ -38,7 +38,7 @@ export default function Post() {
                   id: post.id,
                   slug: post.slug,
                   title: post.title,
-                  thumbnail: fileService.getImageUrl(post.thumbnail!),
+                  thumbnail: post.thumbnail,
                   category: 'گل و گیاه',
                   date: new Intl.DateTimeFormat('fa-IR').format(new Date(post.createDate)),
                   author: {

@@ -4,6 +4,7 @@ import { BsShare, BsThreeDots } from 'react-icons/bs';
 import { FaRegEye, FaHeart, FaBookmark, FaRegBookmark, FaRegHeart } from 'react-icons/fa';
 import { IPost } from '../interfaces';
 import css from './post-row.module.css';
+import { fileService } from '../../../services/file/file.service';
 
 export function PostRow(props: { post: IPost; style?: React.CSSProperties }) {
   return (
@@ -11,7 +12,9 @@ export function PostRow(props: { post: IPost; style?: React.CSSProperties }) {
       <div className={css.post}>
         <Link href={props.post.link || `/post/${props.post.slug}`} target={props.post.link ? '_blank' : undefined}>
           <div className={css.picture}>
-            {props.post.thumbnail && <Image src={props.post.thumbnail} alt='' width={260} height={150} />}
+            {props.post.thumbnail && (
+              <Image src={fileService.getImageUrl(props.post.thumbnail)} alt='' width={260} height={150} />
+            )}
           </div>
         </Link>
         <div className={css.info}>

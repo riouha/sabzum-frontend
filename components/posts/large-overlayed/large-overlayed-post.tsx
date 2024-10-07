@@ -1,6 +1,7 @@
 import css from './styles.module.css';
 import { IPost } from '../interfaces';
 import Link from 'next/link';
+import { fileService } from '../../../services/file/file.service';
 
 export function LargeOverlayedPost(props: { post: IPost }) {
   return (
@@ -17,7 +18,10 @@ export function LargeOverlayedPost(props: { post: IPost }) {
       </div>
       <Link href={props.post.link || `/post/${props.post.slug}`} target={props.post.link ? '_blank' : undefined}>
         <div className={css.image_div}>
-          <div className={css.inner_img} style={{ backgroundImage: `url(${props.post.thumbnail})` }}></div>
+          <div
+            className={css.inner_img}
+            style={{ backgroundImage: `url(${fileService.getImageUrl(props.post.thumbnail)})` }}
+          ></div>
         </div>
       </Link>
     </div>
