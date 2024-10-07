@@ -12,7 +12,7 @@ export function SideNavbar(props: { show: boolean; setShow: (show: boolean) => v
             <BsXLg size={22} color='#8F9BAD' onClick={() => props.setShow(false)} />
           </span>
           <div className='brand'>
-            <Image src='/images/logo3.png' alt='logo' width={60} height={52} />
+            <img src='/images/logo3.png' alt='logo' width={60} height={52} />
             <span>سبزوم</span>
           </div>
           <nav>

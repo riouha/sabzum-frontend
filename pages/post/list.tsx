@@ -29,7 +29,7 @@ function PostList() {
               borderRadius: '5px',
             }}
           >
-            <Image src={fileService.getImageUrl(post.thumbnail!)} alt='xxx' width={70} height={70} />
+            <img src={fileService.getImageUrl(post.thumbnail!)} alt='xxx' width={70} height={70} />
             <h5 style={{ padding: '0px 10px 0px 20px' }}>{post.title}</h5>
             <div style={{ alignContent: 'center' }}>
               <button style={{ margin: '10px' }} onClick={() => router.push('edit/' + post.id)}>

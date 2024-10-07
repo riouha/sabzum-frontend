@@ -8,7 +8,7 @@ export function SidePost(props: { post: IPost }) {
       <div className={css.sidepost}>
         <div className={css.circleimg}>
           <div className={css.inner}>
-            <a>{props.post.thumbnail && <Image src={props.post.thumbnail} alt='' width={64} height={64} />}</a>
+            <a>{props.post.thumbnail && <img src={props.post.thumbnail} alt='' width={64} height={64} />}</a>
           </div>
         </div>
         <div className={css.details}>

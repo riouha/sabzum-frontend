@@ -13,14 +13,14 @@ export function PostRow(props: { post: IPost; style?: React.CSSProperties }) {
         <Link href={props.post.link || `/post/${props.post.slug}`} target={props.post.link ? '_blank' : undefined}>
           <div className={css.picture}>
             {props.post.thumbnail && (
-              <Image src={fileService.getImageUrl(props.post.thumbnail)} alt='' width={260} height={150} />
+              <img src={fileService.getImageUrl(props.post.thumbnail)} alt='' width={260} height={150} />
             )}
           </div>
         </Link>
         <div className={css.info}>
           <ul className={css.info_top_list}>
             <li>
-              <Image
+              <img
                 src={props.post.link ? props.post.author.avatar! : '/images/woman.png'}
                 alt='author'
                 width={30}
