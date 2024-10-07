@@ -2,7 +2,7 @@ FROM docker.arvancloud.ir/node:22-alpine as build
 ENV NODE_ENV production
 WORKDIR /app
 COPY package*.json .
-RUN npm i
+RUN npm ci
 COPY . .
 RUN npm run build
 
