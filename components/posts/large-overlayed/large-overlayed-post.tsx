@@ -10,14 +10,14 @@ export function LargeOverlayedPost(props: { post: IPost }) {
           <h2 className={css.title}>{props.post.title}</h2>
         </Link>
         <ul className={css.meta}>
-          <li>{props.post.author.title}</li>
+          <li>{props.post.author.fullname}</li>
           <li>{props.post.date}</li>
           <li>{props.post.category}</li>
         </ul>
       </div>
       <Link href={props.post.link || `/post/${props.post.slug}`} target={props.post.link ? '_blank' : undefined}>
         <div className={css.image_div}>
-          <div className={css.inner_img} style={{ backgroundImage: `url(${props.post.image})` }}></div>
+          <div className={css.inner_img} style={{ backgroundImage: `url(${props.post.thumbnail})` }}></div>
         </div>
       </Link>
     </div>

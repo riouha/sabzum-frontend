@@ -2,10 +2,10 @@ export interface IPost {
   id: number;
   slug: string;
   title: string;
-  image?: string;
+  thumbnail?: string;
   author: {
     id: string | number;
-    title: string;
+    fullname: string;
     avatar?: string;
   };
   date: string;

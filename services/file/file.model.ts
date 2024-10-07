@@ -1,16 +1,14 @@
 export class File {
-  id!: number;
+  id!: string;
   name!: string;
-  filepath!: string;
-  mimetype?: string;
+  type?: string;
   size?: number;
   createDate!: string;
 }
 
 export class GalleryFile {
-  id!: number;
+  id!: string;
   name!: string;
-  filepath!: string;
   src!: string;
 }
 export class GalleryResult {

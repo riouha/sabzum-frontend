@@ -33,7 +33,7 @@ export function Login(props: {}) {
         <br />
         <button type='submit'>ورود</button>
         <br />
-        <input type='checkbox' id='check' />
+        <input className={css.rememberme} type='checkbox' id='check' />
         <span>به خاطر بسپار</span>
         <br />
       </form>

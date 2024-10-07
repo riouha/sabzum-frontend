@@ -1,5 +1,5 @@
 .roundbtn {
-  color: #FFF;
+  color: #404855;
   border: 0;
   border-radius: 50%;
   background: #87ffcd;
@@ -27,13 +27,13 @@
 }
 
 .appbtn {
-  color: #FFF;
+  color: #404855;
   padding: 0 20px;
   border-radius: 25px;
   border: 0;
-  background: #FFA387;
-  background: -webkit-linear-gradient(bottom, #FFA387 0%, #FE4F70 51%, #FFA387 100%);
-  background: linear-gradient(to top, #FFA387 0%, #FE4F70 51%, #FFA387 100%);
+  background: #87ffcd;
+  background: -webkit-linear-gradient(bottom, #87ffcd 0%, #4ffe9e 51%, #87ffe5 100%);
+  background: linear-gradient(to top, #87ffcd 0%, #4ffe9e 51%, #87ffe5 100%);
   background-size: auto 200%;
   display: inline-flex;
   justify-content: center;

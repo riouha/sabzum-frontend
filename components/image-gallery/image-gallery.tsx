@@ -25,8 +25,7 @@ export function ImageGallery(props: { onImageSelect: (image: GalleryFile) => voi
       imagesList.unshift({
         id: result.data.id,
         name: result.data.name,
-        filepath: result.data.filepath,
-        src: fileService.getImageUrl(result.data.filepath),
+        src: fileService.getImageUrl(result.data.id),
       });
       setImages(imagesList);
     }

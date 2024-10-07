@@ -7,5 +7,5 @@ export interface IPostService {
   searchPosts: (filters: SearchFilters) => Promise<IApiResponse<SearchResult<{ posts: PostModel[] }>>>;
   getPost: (id: number) => Promise<IApiResponse<PostModel>>;
   getPostBySlug: (slug: string) => Promise<IApiResponse<PostModel>>;
-  addPost: (data: CreatePostData) => Promise<IApiResponse<PostModel>>;
+  upsertPost: (data: CreatePostData) => Promise<IApiResponse<PostModel>>;
 }

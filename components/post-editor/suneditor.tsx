@@ -15,7 +15,7 @@ const SunEditor = dynamic<SunEditorReactProps>(
   }
 );
 
-export const EditableSuneditor = (props: { refEditor: MutableRefObject<any> }) => {
+export const EditableSuneditor = (props: { refEditor: MutableRefObject<any>; value?: string }) => {
   // useEffect(() => {}, []);
   const getSunEditorInstance = (sunEditor: any) => {
     props.refEditor.current = sunEditor;
@@ -28,7 +28,7 @@ export const EditableSuneditor = (props: { refEditor: MutableRefObject<any> }) =
         uploadHandler({
           result: [
             {
-              url: fileService.getImageUrl(result.data?.filepath!),
+              url: fileService.getImageUrl(result.data?.id!),
               name: result.data?.name,
               size: result.data?.size,
             },
@@ -36,7 +36,7 @@ export const EditableSuneditor = (props: { refEditor: MutableRefObject<any> }) =
         });
         return undefined;
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.error(err));
   };
 
   return (
@@ -95,7 +95,7 @@ export const EditableSuneditor = (props: { refEditor: MutableRefObject<any> }) =
           imageGalleryHeader: { key: 'images' },
           font: ['Vazirmatn', 'Arial', 'Comic Sans MS', 'Courier New', 'Impact'],
         }}
-        // defaultValue={}
+        defaultValue={props.value}
         // readOnly={true}
         // hideToolbar={true}
         // disableToolbar={true}

@@ -102,12 +102,12 @@ export default function Home() {
                 id: 1,
                 slug: '1',
                 title: 'نحوه کاشت، آبیاری و نگهداری از درختچه بونسای ژاپنی',
-                image: 'https://glamourgarden.com/wp-content/uploads/2023/08/Bonsai-1024x636.jpg',
+                thumbnail: 'https://glamourgarden.com/wp-content/uploads/2023/08/Bonsai-1024x636.jpg',
                 category: 'الهام بخش',
                 date: '27/9/1401',
                 author: {
                   id: 1,
-                  title: 'نام نویسنده',
+                  fullname: 'نام نویسنده',
                 },
               }}
             />
@@ -133,19 +133,18 @@ export default function Home() {
                   date: post.published
                     ? new Intl.DateTimeFormat('fa-IR').format(new Date(post.published))
                     : post.createDate,
-                  author: post.sourceData
+                  author: post.author
                     ? {
-                        id: post.sourceData.name,
-                        title: post.sourceData.title,
-                        avatar: post.sourceData.logo,
+                        id: post.author.id,
+                        fullname: post.author.fullname,
+                        // avatar: post.author.avatar,
                       }
                     : {
                         id: post.author!.id,
-                        title: post.author!.fullname,
+                        fullname: post.author!.fullname,
                         avatar: post.thumbnail,
                       },
-                  image: post.link ? post.thumbnail : fileService.getImageUrl(post.thumbnail!),
-                  link: post.link,
+                  thumbnail: fileService.getImageUrl(post.thumbnail!),
                 }}
                 style={{ marginBottom: '30px' }}
               />

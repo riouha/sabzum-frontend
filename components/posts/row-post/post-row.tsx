@@ -6,14 +6,12 @@ import { IPost } from '../interfaces';
 import css from './post-row.module.css';
 
 export function PostRow(props: { post: IPost; style?: React.CSSProperties }) {
-  console.log(props.post);
-
   return (
     <div className={css.block} style={props.style}>
       <div className={css.post}>
         <Link href={props.post.link || `/post/${props.post.slug}`} target={props.post.link ? '_blank' : undefined}>
           <div className={css.picture}>
-            {props.post.image && <Image src={props.post.image} alt='' width={260} height={150} />}
+            {props.post.thumbnail && <Image src={props.post.thumbnail} alt='' width={260} height={150} />}
           </div>
         </Link>
         <div className={css.info}>
@@ -26,7 +24,7 @@ export function PostRow(props: { post: IPost; style?: React.CSSProperties }) {
                 height={30}
                 className={css.author}
               />
-              <span>{props.post.author.title}</span>
+              <span>{props.post.author.fullname}</span>
             </li>
             <li>{props.post.category}</li>
             <li>{props.post.date}</li>

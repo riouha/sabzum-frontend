@@ -4,23 +4,16 @@ export class PostModel {
   id!: number;
   slug!: string;
   title!: string;
-  content?: string;
-  htmlContent?: string;
-  thumbnail?: string;
-  source?: string;
-  sourceData?: {
-    name: string;
-    title: string;
-    logo?: string;
-  };
-  link?: string;
+  content!: string;
+  htmlContent!: string;
+  thumbnail!: string;
   published?: string;
-
   authorId?: number;
   author?: {
     id: number;
     mobile: string;
     fullname: string;
+    avatar?: string;
   };
   createDate!: string;
 }

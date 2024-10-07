@@ -45,9 +45,6 @@ export function Header(props: { handleOpenSideMenu: (show: boolean) => void }) {
             <li className={css.navListItem}>
               <span className={[css.navLink].join(' ')}>درباره ما</span>
             </li>
-            <li className={css.navListItem}>
-              <span className={[css.navLink].join(' ')}>بلاگ</span>
-            </li>
           </ul>
         </div>
       </nav>

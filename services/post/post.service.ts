@@ -4,6 +4,7 @@ import { IApiResponse } from '../../utils/interfaces/api-response';
 import { PostModel, CreatePostData } from './post.model';
 import { IPostService } from './post.interface';
 import { SearchResult } from '../../utils/types/search-result.type';
+import { adminService } from '../admin/admin.service';
 
 class PostService implements IPostService {
   async getPosts(): Promise<IApiResponse<{ posts: PostModel[] }>> {
@@ -49,7 +50,9 @@ class PostService implements IPostService {
 
   async getPost(id: number): Promise<IApiResponse<PostModel>> {
     try {
-      const result = await axiosInstance.get(`/post/${id}`);
+      const result = await axiosInstance.get(`/admin/post/${id}`, {
+        headers: { Authorization: `Bearer ${adminService.getToken()}` },
+      });
       return {
         data: result.data as PostModel,
       };
@@ -61,9 +64,16 @@ class PostService implements IPostService {
     }
   }
 
-  async addPost(data: CreatePostData): Promise<IApiResponse<PostModel>> {
+  async upsertPost(data: CreatePostData, id?: number): Promise<IApiResponse<PostModel>> {
     try {
-      const result = await axiosInstance.post('/post', data);
+      const result =
+        id == undefined
+          ? await axiosInstance.post('/admin/post', data, {
+              headers: { Authorization: `Bearer ${adminService.getToken()}` },
+            })
+          : await axiosInstance.patch(`/admin/post/${id}`, data, {
+              headers: { Authorization: `Bearer ${adminService.getToken()}` },
+            });
       return {
         data: result.data as PostModel,
       };

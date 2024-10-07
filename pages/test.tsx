@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { SideNavbar } from '../components/navbar/side-navbar/side-navbar';
-import RssParser from 'rss-parser';
 import { SidePost } from '../components/posts/side-post/side-post';
 
 function Test() {
@@ -14,11 +13,9 @@ function Test() {
   //   parser
   //     .parseURL(CORS_PROXY + 'https://www.fardayeeghtesad.com/rss/tp/71')
   //     .then((result: any) => {
-  //       console.log(result.items);
-
   //       setNews(result.items);
   //     })
-  //     .catch((err) => console.log(err));
+  //     .catch((err) => console.error(err));
   // }, []);
   return <></>;
 }

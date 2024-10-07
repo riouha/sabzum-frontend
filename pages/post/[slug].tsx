@@ -13,9 +13,8 @@ import { fileService } from '../../services/file/file.service';
 
 export default function Post() {
   const router = useRouter();
-  const [showSideMenu, SetShowSideMenu] = useState(false);
+  const [showSideMenu, setShowSideMenu] = useState(false);
   const [post, setPost] = useState<PostModel>();
-  console.log(post);
 
   useEffect(() => {
     if (router.query.slug) {
@@ -27,9 +26,9 @@ export default function Post() {
 
   return (
     <>
-      <Header handleOpenSideMenu={SetShowSideMenu} />
+      <Header handleOpenSideMenu={setShowSideMenu} />
       {/* <Navbar handleOpenSideMenu={SetShowSideMenu} /> */}
-      <SideNavbar show={showSideMenu} setShow={SetShowSideMenu} />
+      <SideNavbar show={showSideMenu} setShow={setShowSideMenu} />
       <div className='home_container'>
         <div className='hot_favourites'>
           <div className='hot_post'>
@@ -39,12 +38,12 @@ export default function Post() {
                   id: post.id,
                   slug: post.slug,
                   title: post.title,
-                  image: fileService.getImageUrl(post.thumbnail!),
+                  thumbnail: fileService.getImageUrl(post.thumbnail!),
                   category: 'گل و گیاه',
                   date: new Intl.DateTimeFormat('fa-IR').format(new Date(post.createDate)),
                   author: {
                     id: 1,
-                    title: 'نام نویسنده',
+                    fullname: 'نام نویسنده',
                   },
                 }}
               />

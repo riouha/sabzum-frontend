@@ -20,7 +20,6 @@ export function SideNavbar(props: { show: boolean; setShow: (show: boolean) => v
               <li>صفحه اصلی</li>
               <li>تماس با ما</li>
               <li>درباره ما</li>
-              <li className='active'>بلاگ</li>
             </ul>
           </nav>
         </div>
@@ -110,7 +109,7 @@ export function FixedSideNavbar() {
               <li>صفحه اصلی</li>
               <li>تماس با ما</li>
               <li>درباره ما</li>
-              <li className='active'>بلاگ</li>
+              <li className='active'>پست ها</li>
             </ul>
           </nav>
         </div>

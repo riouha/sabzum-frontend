@@ -9,45 +9,39 @@ import { Backdrop } from '../backdrop/backdrop';
 import css from './post-editor.module.css';
 import 'suneditor/dist/css/suneditor.min.css';
 //======================================================================================
-
-export function PostEditor() {
+type EditPostType = {
+  id?: number;
+  title?: string;
+  thumbnail?: string;
+  isdraft?: boolean;
+  html?: string;
+};
+export function PostEditor(props: Readonly<EditPostType>) {
   const refEditor = useRef<any>();
-  const [title, setTitle] = useState('');
-  const [thumbnail, setThumbnail] = useState<string>();
+  const [title, setTitle] = useState(props.title ?? '');
+  const [thumbnail, setThumbnail] = useState<string | undefined>(props.thumbnail);
+  const [isdraft, setIsdraft] = useState(props.isdraft ?? true);
   const [showGalleryModal, setShowGalleryModal] = useState(false);
 
-  const handleSaveDraft = async () => {
+  const handleCreatePost = async () => {
     if (!refEditor.current || !thumbnail || !title) return;
     const html = refEditor.current.getContents();
-    const result = await postService.addPost({
-      title,
-      content: html.replace(/<[^>]+>/g, ' '),
-      htmlContent: encodeURI(html),
-      thumbnail,
-    });
-    console.log(result);
-  };
-  const handleSavePublished = async () => {
-    console.log(refEditor.current, thumbnail, title);
-
-    if (!refEditor.current || !thumbnail || !title) return;
-    const html = refEditor.current.getContents();
-    console.log('html', html);
-
-    const result = await postService.addPost({
-      title,
-      content: html.replace(/<[^>]+>/g, ' ').replace(/&nbsp;/g, ''),
-      htmlContent: encodeURI(html),
-      thumbnail,
-      published: new Date(),
-    });
-    console.log(result);
+    await postService.upsertPost(
+      {
+        title,
+        content: html.replace(/<[^>]+>/g, ' ').replace(/&nbsp;/g, ''),
+        htmlContent: encodeURI(html),
+        thumbnail,
+        published: isdraft ? undefined : new Date(),
+      },
+      props.id
+    );
   };
 
   return (
     <>
       <div className={css.newpost}>
-        <div style={{ background: '#888', width: '100%', marginBottom: '10px' }}>انتشار پست جدید</div>
+        {/* <div style={{ background: '#888', width: '100%', marginBottom: '10px' }}>انتشار پست جدید</div> */}
 
         <div className={css.post}>
           <div className={css.editor}>
@@ -57,31 +51,41 @@ export function PostEditor() {
               value={title}
               onChange={(e: any) => setTitle(e.target.value)}
             />
-            <EditableSuneditor refEditor={refEditor} />
+            <EditableSuneditor refEditor={refEditor} value={props.html} />
           </div>
           <div className={css.settings}>
-            <div>
-              <button onClick={() => setShowGalleryModal(true)}>انتخاب تصویرک</button>
+            <div style={{ margin: '0 20px 10px 0px' }}>
+              <button className='appbtn' onClick={() => setShowGalleryModal(true)}>
+                تصویرک
+              </button>
               <br />
-              {thumbnail && <img src={fileService.getImageUrl(thumbnail)} width={100} alt='' />}
+              <br />
+              {thumbnail ? (
+                <img src={fileService.getImageUrl(thumbnail)} width={100} alt='' />
+              ) : (
+                <div style={{ border: '1px solid gray', width: '100px', height: '100px' }}></div>
+              )}
+              <br />
+              <input id='isdraft' type='checkbox' checked={isdraft} onChange={(e) => setIsdraft(!isdraft)} />
+              <label style={{ fontSize: '14px', padding: '0px 10px 0px 0px' }} htmlFor='isdraft'>
+                پیشنویس
+              </label>
+              <br />
+              <button
+                className='appbtn'
+                style={{ borderRadius: '5px', margin: '20px 0 0 0px' }}
+                onClick={handleCreatePost}
+              >
+                ایجاد{' '}
+              </button>
             </div>
-            <button
-              className='appbtn'
-              style={{ borderRadius: '5px', marginLeft: '10px' }}
-              onClick={handleSavePublished}
-            >
-              ذخیره و انتشار
-            </button>
-            <button className='appbtn' style={{ borderRadius: '5px', marginLeft: '10px' }} onClick={handleSaveDraft}>
-              ذخیره پیشنویس
-            </button>
           </div>
         </div>
       </div>
       <Modal show={showGalleryModal}>
         <ImageGallery
           onImageSelect={(image: GalleryFile) => {
-            setThumbnail(image.filepath);
+            setThumbnail(image.id);
             setShowGalleryModal(false);
           }}
         />

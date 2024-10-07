@@ -1,6 +1,7 @@
 import { appConfig } from '../../config/app-config';
 import { axiosInstance } from '../../config/axios.instance';
 import { IApiResponse } from '../../utils/interfaces/api-response';
+import { adminService } from '../admin/admin.service';
 import { IFileService } from './file.interface';
 import { File, GalleryResult } from './file.model';
 
@@ -10,8 +11,11 @@ class FileService implements IFileService {
       const data = new FormData();
       data.append('file', image);
 
-      const result = await axiosInstance.post('/file/image', data, {
-        headers: { 'Content-Type': 'multipart/form-data' },
+      const result = await axiosInstance.post('/admin/file/image', data, {
+        headers: {
+          Authorization: `Bearer ${adminService.getToken()}`,
+          'Content-Type': 'multipart/form-data',
+        },
       });
       return {
         data: result.data as File,
@@ -23,10 +27,14 @@ class FileService implements IFileService {
       };
     }
   }
+
   async uploadFormData(data: FormData): Promise<IApiResponse<File>> {
     try {
-      const result = await axiosInstance.post('/file/image', data, {
-        headers: { 'Content-Type': 'multipart/form-data' },
+      const result = await axiosInstance.post('/admin/file/image', data, {
+        headers: {
+          Authorization: `Bearer ${adminService.getToken()}`,
+          'Content-Type': 'multipart/form-data',
+        },
       });
       return {
         data: result.data as File,
@@ -45,7 +53,9 @@ class FileService implements IFileService {
 
   async getGallery(): Promise<IApiResponse<GalleryResult>> {
     try {
-      const result = await axiosInstance.get('/file/gallery');
+      const result = await axiosInstance.get('/admin/file/gallery', {
+        headers: { Authorization: `Bearer ${adminService.getToken()}` },
+      });
       return {
         data: result.data as GalleryResult,
       };
@@ -58,7 +68,7 @@ class FileService implements IFileService {
   }
 
   getGalleryUrl() {
-    return `${appConfig.apiURL}/file/gallery`;
+    return `${appConfig.apiURL}/admin/file/gallery2`;
   }
 }
 
