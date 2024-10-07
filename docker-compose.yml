@@ -1,11 +1,8 @@
 version: '3'
 services:
-  sabzum-front:
+  sabzum-frontend:
+    container_name: sabzum-frontend
     build: .
     restart: unless-stopped
     ports:
-      - '3000:3000'
-    expose:
-      - '3000'
-    environment:
-      PORT: 3000
+      - '4101:4101'
