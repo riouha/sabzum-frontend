@@ -56,3 +56,7 @@
 #readonly-suneditor>* .sun-editor-editable[contenteditable=true] .se-component {
   outline: none !important;
 }
+
+#readonly-suneditor>* .se-read-only {
+  height: auto !important;
+}

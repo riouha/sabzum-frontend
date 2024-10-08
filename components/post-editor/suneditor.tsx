@@ -117,6 +117,7 @@ export const ReadonlySuneditor = (props: { value: string }) => {
           setOptions={{
             resizingBar: false,
             // showPathLabel: false,
+            // height: 'auto',
             rtl: true,
           }}
           defaultValue={props.value}

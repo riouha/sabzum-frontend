@@ -1,7 +1,7 @@
 @font-face {
   font-family: 'Vazirmatn';
-  src: url('../public/fonts/vazir/Vazirmatn[wght].ttf') format('woff2 supports variations'),
-    url('../public/fonts/vazir/Vazirmatn[wght].ttf') format('woff2-variations');
+  src: url('../public/fonts/vazir/vazirmatn[wght].ttf') format('woff2 supports variations'),
+    url('../public/fonts/vazir/vazirmatn[wght].ttf') format('woff2-variations');
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
