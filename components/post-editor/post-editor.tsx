@@ -8,13 +8,14 @@ import { GalleryFile } from '../../services/file/file.model';
 import { Backdrop } from '../backdrop/backdrop';
 import css from './post-editor.module.css';
 import 'suneditor/dist/css/suneditor.min.css';
+import { CreatePostData } from '../../services/post/post.model';
 //======================================================================================
 type EditPostType = {
-  id?: number;
   title?: string;
   thumbnail?: string;
   isdraft?: boolean;
   html?: string;
+  savePost: (dto: CreatePostData) => void;
 };
 export function PostEditor(props: Readonly<EditPostType>) {
   const refEditor = useRef<any>();
@@ -26,16 +27,13 @@ export function PostEditor(props: Readonly<EditPostType>) {
   const handleCreatePost = async () => {
     if (!refEditor.current || !thumbnail || !title) return;
     const html = refEditor.current.getContents();
-    await postService.upsertPost(
-      {
-        title,
-        content: html.replace(/<[^>]+>/g, ' ').replace(/&nbsp;/g, ''),
-        htmlContent: encodeURI(html),
-        thumbnail,
-        published: isdraft ? undefined : new Date(),
-      },
-      props.id
-    );
+    await props.savePost({
+      title,
+      content: html.replace(/<[^>]+>/g, ' ').replace(/&nbsp;/g, ''),
+      htmlContent: encodeURI(html),
+      thumbnail,
+      published: isdraft ? undefined : new Date(),
+    });
   };
 
   return (

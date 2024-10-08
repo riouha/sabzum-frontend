@@ -18,7 +18,7 @@ export function Login(props: {}) {
     const result = await adminService.login({ username, password });
     if (result.data) {
       adminService.setToken(result.data.access_token);
-      router.push('/post/create');
+      router.push('/admin/post/list');
     } else notify(result.message!);
   }
 

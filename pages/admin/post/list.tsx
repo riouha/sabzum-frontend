@@ -1,12 +1,10 @@
 import { useEffect, useState } from 'react';
-import { FixedSideNavbar } from '../../components/navbar/side-navbar/side-navbar';
 import { useRouter } from 'next/router';
-import IsAdmin from '../../components/is-admin/is-admin';
-import { PostModel } from '../../services/post/post.model';
-import { postService } from '../../services/post/post.service';
-import { fileService } from '../../services/file/file.service';
-import Image from 'next/image';
-
+import { PostModel } from '../../../services/post/post.model';
+import { postService } from '../../../services/post/post.service';
+import { FixedSideNavbar } from '../../../components/navbar/side-navbar/side-navbar';
+import { fileService } from '../../../services/file/file.service';
+import IsAdmin from '../../../components/is-admin/is-admin';
 function PostList() {
   const [posts, setPosts] = useState<PostModel[]>([]);
   useEffect(() => {
@@ -17,7 +15,12 @@ function PostList() {
   return (
     <div style={{ display: 'flex', flexDirection: 'row' }}>
       <FixedSideNavbar />
-      <div style={{ display: 'flex', flexDirection: 'column' }}>
+      <div style={{ marginTop: '30px', display: 'flex', flexDirection: 'column' }}>
+        <div style={{}}>
+          <button className='appbtn' onClick={() => router.push('create')}>
+            ایجاد پست جدید
+          </button>
+        </div>
         {posts.map((post) => (
           <div
             key={post.id}

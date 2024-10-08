@@ -7,7 +7,7 @@ export default function IsAdmin(Component: any) {
     const router = useRouter();
     useEffect(() => {
       const isvalid = adminService.getToken();
-      if (!isvalid) return router.push('/');
+      if (!isvalid) return router.push('/admin/login');
     }, []);
 
     return <Component {...props} />;

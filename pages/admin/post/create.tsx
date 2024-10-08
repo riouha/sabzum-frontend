@@ -1,15 +1,20 @@
 import { useState } from 'react';
-import { FixedSideNavbar } from '../../components/navbar/side-navbar/side-navbar';
-import { PostEditor } from '../../components/post-editor/post-editor';
 import { useRouter } from 'next/router';
-import IsAdmin from '../../components/is-admin/is-admin';
+import { FixedSideNavbar } from '../../../components/navbar/side-navbar/side-navbar';
+import { PostEditor } from '../../../components/post-editor/post-editor';
+import IsAdmin from '../../../components/is-admin/is-admin';
+import { postService } from '../../../services/post/post.service';
+import { CreatePostData } from '../../../services/post/post.model';
 
 function CreatePost() {
   const router = useRouter();
   // useLayoutEffect(() => {
   //   if (!adminService.getToken()) router.push('/');
   // }, [router]);
-  const [showSideMenu, SetShowSideMenu] = useState(false);
+  const savePost = async (dto: CreatePostData) => {
+    const result = await postService.upsertPost(dto);
+    if (!result.error) router.push('/admin/post/list');
+  };
 
   return (
     <>
@@ -20,7 +25,7 @@ function CreatePost() {
           <div className='read'>
             <ReadonlyQuill value={'swsw'} />
           </div> */}
-          <PostEditor />
+          <PostEditor savePost={savePost} />
         </div>
       </div>
       <style jsx>{`
