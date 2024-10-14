@@ -7,9 +7,9 @@ import { SearchResult } from '../../utils/types/search-result.type';
 import { adminService } from '../admin/admin.service';
 
 class PostService implements IPostService {
-  async getPosts(): Promise<IApiResponse<{ posts: PostModel[] }>> {
+  async getPosts(drafts?: '0' | '1'): Promise<IApiResponse<{ posts: PostModel[] }>> {
     try {
-      const result = await axiosInstance.get('/post');
+      const result = await axiosInstance.get('/post', { params: { drafts } });
       return {
         data: { posts: result.data },
       };
@@ -22,7 +22,7 @@ class PostService implements IPostService {
   }
   async searchPosts(filters: SearchFilters): Promise<IApiResponse<SearchResult<{ posts: PostModel[] }>>> {
     try {
-      const result = await axiosInstance.get('/post');
+      const result = await axiosInstance.get('/post', { params: filters });
       return {
         data: { count: result.data.count, posts: result.data.posts },
       };

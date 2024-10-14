@@ -5,4 +5,5 @@ export class SearchFilters<T = void> {
   sortOrder?: 'ASC' | 'DESC';
   dateFrom?: number;
   dateTo?: number;
+  drafts?: '0' | '1';
 }

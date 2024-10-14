@@ -8,7 +8,7 @@ import IsAdmin from '../../../components/is-admin/is-admin';
 function PostList() {
   const [posts, setPosts] = useState<PostModel[]>([]);
   useEffect(() => {
-    postService.getPosts().then((data) => setPosts(data.data?.posts ?? []));
+    postService.getPosts('1').then((data) => setPosts(data.data?.posts ?? []));
   }, []);
   const router = useRouter();
 
