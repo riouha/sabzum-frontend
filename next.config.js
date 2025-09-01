@@ -4,9 +4,8 @@
 
 const nextConfig = {
   reactStrictMode: true,
-  swcMinify: true,
+  // swcMinify: true,
   images: {
-    domains: ['87.248.150.89', 'api.sabzum.ir', 'www.api.sabzum.ir'],
     remotePatterns: [
       { protocol: 'http', hostname: '127.0.0.1' },
       { protocol: 'http', hostname: '87.248.150.89' },

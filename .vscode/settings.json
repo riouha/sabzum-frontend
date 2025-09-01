@@ -1,0 +1,10 @@
+{
+  "prettier.singleQuote": true,
+  "prettier.jsxSingleQuote": true,
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "editor.quickSuggestions": {
+    "strings": "on"
+  }
+}
